@@ -2,13 +2,12 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { Card } from 'semantic-ui-react';
 import axios from 'axios';
-import InfiniteScroll from 'react-infinite-scroller';
 
 class Beers extends Component {
-  state = { beers: []}   
+  state = { beers: [] }   
   componentDidMount() {
-    axios.get("/api/all_beers").then(res => {
-      this.setState({ beers: res.data });
+    axios.get("/api/all_beers?page=20&per_page=5").then(res => {
+      this.setState({ beers: res.data }); debugger
     });
   }
   
